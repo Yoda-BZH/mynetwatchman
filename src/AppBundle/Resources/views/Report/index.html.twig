@@ -1,0 +1,51 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Report list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>At</th>
+                <th>Av</th>
+                <th>Agentemail</th>
+                <th>Agentpassword</th>
+                <th>Attackerip</th>
+                <th>Srcport</th>
+                <th>Protocolid</th>
+                <th>Destport</th>
+                <th>Attackcount</th>
+                <th>Victimip</th>
+                <th>Attackdatetime</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('report_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.at }}</td>
+                <td>{{ entity.av }}</td>
+                <td>{{ entity.agentEmail }}</td>
+                <td>{{ entity.agentPassword }}</td>
+                <td>{{ entity.attackerIP }}</td>
+                <td>{{ entity.srcPort }}</td>
+                <td>{{ entity.protocolID }}</td>
+                <td>{{ entity.destPort }}</td>
+                <td>{{ entity.attackCount }}</td>
+                <td>{{ entity.victimIP }}</td>
+                <td>{% if entity.attackDateTime %}{{ entity.attackDateTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('report_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}

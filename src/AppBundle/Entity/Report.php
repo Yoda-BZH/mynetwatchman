@@ -98,11 +98,18 @@ class Report
      */
     private $attackDateTime;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="treated", type="interger")
+     */
+    private $treated;
+
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -125,7 +132,7 @@ class Report
     /**
      * Get at
      *
-     * @return integer 
+     * @return integer
      */
     public function getAt()
     {
@@ -148,7 +155,7 @@ class Report
     /**
      * Get av
      *
-     * @return integer 
+     * @return integer
      */
     public function getAv()
     {
@@ -171,7 +178,7 @@ class Report
     /**
      * Get agentEmail
      *
-     * @return string 
+     * @return string
      */
     public function getAgentEmail()
     {
@@ -194,7 +201,7 @@ class Report
     /**
      * Get agentPassword
      *
-     * @return string 
+     * @return string
      */
     public function getAgentPassword()
     {
@@ -217,7 +224,7 @@ class Report
     /**
      * Get attackerIP
      *
-     * @return string 
+     * @return string
      */
     public function getAttackerIP()
     {
@@ -240,7 +247,7 @@ class Report
     /**
      * Get srcPort
      *
-     * @return integer 
+     * @return integer
      */
     public function getSrcPort()
     {
@@ -263,7 +270,7 @@ class Report
     /**
      * Get protocolID
      *
-     * @return string 
+     * @return string
      */
     public function getProtocolID()
     {
@@ -286,7 +293,7 @@ class Report
     /**
      * Get destPort
      *
-     * @return integer 
+     * @return integer
      */
     public function getDestPort()
     {
@@ -309,7 +316,7 @@ class Report
     /**
      * Get attackCount
      *
-     * @return integer 
+     * @return integer
      */
     public function getAttackCount()
     {
@@ -332,7 +339,7 @@ class Report
     /**
      * Get victimIP
      *
-     * @return string 
+     * @return string
      */
     public function getVictimIP()
     {
@@ -355,10 +362,32 @@ class Report
     /**
      * Get attackDateTime
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getAttackDateTime()
     {
         return $this->attackDateTime;
+    }
+
+    /**
+     * Set treated status
+     *
+     * @return Report
+     */
+    public function setTreated($treated = 1)
+    {
+        $this->treated = (int) (bool) $treated;
+
+        return $this;
+    }
+
+    /**
+     * Get treated status
+     *
+     * @return boolean
+     */
+    public function getTreated()
+    {
+        return (bool) $this->treated;
     }
 }

@@ -1,0 +1,66 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Report</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>At</th>
+                <td>{{ entity.at }}</td>
+            </tr>
+            <tr>
+                <th>Av</th>
+                <td>{{ entity.av }}</td>
+            </tr>
+            <tr>
+                <th>Agentemail</th>
+                <td>{{ entity.agentEmail }}</td>
+            </tr>
+            <tr>
+                <th>Agentpassword</th>
+                <td>{{ entity.agentPassword }}</td>
+            </tr>
+            <tr>
+                <th>Attackerip</th>
+                <td>{{ entity.attackerIP }}</td>
+            </tr>
+            <tr>
+                <th>Srcport</th>
+                <td>{{ entity.srcPort }}</td>
+            </tr>
+            <tr>
+                <th>Protocolid</th>
+                <td>{{ entity.protocolID }}</td>
+            </tr>
+            <tr>
+                <th>Destport</th>
+                <td>{{ entity.destPort }}</td>
+            </tr>
+            <tr>
+                <th>Attackcount</th>
+                <td>{{ entity.attackCount }}</td>
+            </tr>
+            <tr>
+                <th>Victimip</th>
+                <td>{{ entity.victimIP }}</td>
+            </tr>
+            <tr>
+                <th>Attackdatetime</th>
+                <td>{{ entity.attackDateTime|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('report') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}
